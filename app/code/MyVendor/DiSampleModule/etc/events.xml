@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_after">
+        <observer name="debug_order_place" instance="MyVendor\DiSampleModule\Observer\OrderPlaceAfter" />
+    </event>
+
+    <event name="di_samplemodule_controller_called">
+    	<observer name="custom_observer_called" instance="MyVendor\DiSampleModule\Observer\CustomObserver" />
+    </event>
+</config>

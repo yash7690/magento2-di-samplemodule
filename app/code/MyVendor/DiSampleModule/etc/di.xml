@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="append_product_name" type="MyVendor\DiSampleModule\Plugin\Product" sortOrder="30" />
+    </type>
+
+    <virtualType name="ShortName" type="MyVendor\DiSampleModule\Model\LongClassName">
+        <arguments>
+            <argument name="name" xsi:type="string">Name from di xml</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="SomethingElse" type="MyVendor\DiSampleModule\Model\LongClassName">
+        <arguments>
+            <argument name="name" xsi:type="string">Name from di xml - but something else</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="MyVendor\DiSampleModule\Block\Sample">
+        <arguments>
+            <argument name="obj1" xsi:type="object">ShortName</argument>
+            <argument name="obj2" xsi:type="object">SomethingElse</argument>
+        </arguments>
+    </type>
+
+    <preference for="MyVendor\DiSampleModule\Block\Sample" type="MyVendor\DiSampleModule\Model\Sample" />
+</config>
